@@ -3,6 +3,7 @@
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from loguru import logger
 
@@ -25,6 +26,15 @@ def create_app() -> FastAPI:
 
     # 确保目录存在
     settings.ensure_directories()
+
+    # CORS中间件
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=settings.api.cors_origins,
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     # 注册路由
     app.include_router(router, prefix="/api", tags=["architecture-analysis"])
