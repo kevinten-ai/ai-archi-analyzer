@@ -9,11 +9,19 @@
 
 > 将原本需要人工数周的架构梳理工作，缩短至自动化数小时完成。
 
+<p align="center">
+  <img src="docs/images/hero-banner.png" alt="AI Architecture Analyzer" width="600">
+</p>
+
 ---
 
 ## 🏗️ 系统架构
 
 ### 分层架构总览
+
+<p align="center">
+  <img src="docs/images/architecture-layers.png" alt="分层架构" width="500">
+</p>
 
 ```mermaid
 block-beta
@@ -37,6 +45,10 @@ block-beta
 ```
 
 ### 管道处理流程
+
+<p align="center">
+  <img src="docs/images/pipeline-flow.png" alt="管道处理流程" width="600">
+</p>
 
 核心分析流程由 `PipelineOrchestrator` 编排，分为 4 个阶段：
 
