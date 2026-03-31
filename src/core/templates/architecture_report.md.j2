@@ -1,0 +1,48 @@
+# 系统架构分析报告
+
+**生成时间**: {{ generated_at }}
+**应用数量**: {{ total_apps }}
+
+## 📊 基本信息
+
+- **架构类型**: {{ analysis.architecture_type }}
+- **质量评分**: {{ analysis.quality_score }}/10
+
+## 📋 架构总述
+
+{{ analysis.summary }}
+
+## 🛠️ 技术栈分析
+
+**编程语言**: {{ analysis.languages | join(', ') }}
+**框架**: {{ analysis.frameworks | join(', ') }}
+
+## ✅ 架构优势
+
+{% for strength in analysis.strengths %}
+- {{ strength }}
+{% endfor %}
+
+## ⚠️ 架构问题
+
+{% for weakness in analysis.weaknesses %}
+- {{ weakness }}
+{% endfor %}
+
+## 💡 改进建议
+
+{% for recommendation in analysis.recommendations %}
+- {{ recommendation }}
+{% endfor %}
+
+## 📱 应用详情
+
+{% for app in apps_data %}
+### {{ app.name or app.app_id }}
+
+- **应用ID**: {{ app.app_id }}
+- **描述**: {{ app.description or '无' }}
+- **语言**: {{ app.language or '未知' }}
+- **框架**: {{ app.framework or '未知' }}
+- **依赖**: {{ app.dependencies | join(', ') or '无' }}
+{% endfor %}
